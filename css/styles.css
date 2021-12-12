@@ -107,6 +107,7 @@ header .logo {
   font-size: 16px;
   line-height: 1.88;
   text-align: center;
+  cursor: pointer;
 }
 
 .hero-title,
@@ -205,6 +206,7 @@ footer .logo {
 .projects-filter button:focus {
   background-color: var(--brand-color);
   color: var(--main-bcg-color);
+  cursor: pointer;
 }
 
 /* примеры проектов */
