@@ -6,6 +6,7 @@
   --brand-bcg-color: #2f303a;
   --secondary-bcg-color: #f5f4fa;
   --footer-contacts-color: rgba(255, 255, 255, 0.6);
+  --main-links-icons-color: #afb1b8;
 }
 
 body {
@@ -34,7 +35,9 @@ ul {
 .team-members,
 .adress-list,
 .projects-filter,
-.projects {
+.projects,
+.clients-list,
+.footer-networks-list {
   list-style-type: none;
 }
 
@@ -65,6 +68,20 @@ ul {
   margin-right: 30px;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 /* шапка */
 
 .header {
@@ -79,7 +96,6 @@ ul {
   align-items: center;
 }
 
-.contact-item:not(:last-child),
 .nav-item:not(:last-child) {
   margin-right: 50px;
 }
@@ -139,11 +155,21 @@ ul {
 .header-contact {
   color: var(--secondary-text-color);
   text-decoration: none;
+  margin-left: 10px;
 }
 
 .header-contact:hover,
 .header-contact:focus {
   color: var(--brand-color);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+}
+
+.contact-item:not(:last-child) {
+  margin-right: 30px;
 }
 
 /* основная часть страницы "Студия" */
@@ -161,7 +187,14 @@ ul {
   padding-top: 200px;
   padding-bottom: 200px;
   text-align: center;
+
+  background-image: linear-gradient(rgba(47, 48, 58, 0.4) 100%, rgba(47, 48, 58, 0.4) 100%),
+    url('../images/hero-bcg.jpg');
+  background-repeat: no-repeat;
+  background-size: 1600px;
+  background-position: center;
 }
+
 .hero-title {
   color: var(--main-bcg-color);
   font-weight: 900;
@@ -209,6 +242,18 @@ ul {
   width: calc((100%-90px) / 4);
 }
 
+.main-list-item.icons {
+  width: 270px;
+  height: 120px;
+  background-color: var(--secondary-bcg-color);
+  border-radius: 4px;
+  padding: 25px 100px;
+}
+
+.peculiarities-list.text {
+  margin-top: 30px;
+}
+
 .peculiarity-name {
   font-size: 14px;
   line-height: 1.14;
@@ -241,6 +286,12 @@ ul {
   display: flex;
 }
 
+.team-members.social-networks {
+  margin-top: 16px;
+
+  justify-content: center;
+}
+
 .team-member {
   padding-bottom: 30px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -269,12 +320,62 @@ ul {
   text-align: center;
 }
 
+.network:not(:last-child) {
+  margin-right: 10px;
+}
+
+.network-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  fill: var(--main-links-icons-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.network-link:hover {
+  fill: var(--main-bcg-color);
+  background-color: var(--brand-color);
+}
+/* постоянные клиенты */
+
+.clients-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.client-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  fill: var(--main-links-icons-color);
+  width: 170px;
+  height: 72px;
+  border: 1px solid var(--main-links-icons-color);
+  border-radius: 4px;
+}
+
+.client-link:hover {
+  fill: var(--brand-color);
+  border: 1px solid var(--brand-color);
+}
+
 /* подвал */
 
 .footer {
   padding: 60px 0;
 
   background-color: var(--brand-bcg-color);
+}
+
+.footer > .container {
+  display: flex;
+  align-items: baseline;
 }
 
 .footer .logo {
@@ -310,6 +411,37 @@ ul {
   color: var(--brand-color);
 }
 
+.footer-networks {
+  margin-left: 70px;
+}
+
+.join {
+  color: var(--main-bcg-color);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+}
+
+.footer-networks-list {
+  display: flex;
+
+  margin-top: 20px;
+}
+
+.footer-network:not(:last-child) {
+  margin-right: 10px;
+}
+
+.footer-network .network-link {
+  background-color: rgba(255, 255, 255, 0.1);
+  fill: var(--main-bcg-color);
+}
+
+.footer-network .network-link:hover {
+  background-color: var(--brand-color);
+}
+
 /* основная часть страницы "Портфолио" */
 
 /* фильтр */
@@ -319,12 +451,8 @@ ul {
   justify-content: center;
 }
 
-.filter-item {
+.filter-item:not(:last-child) {
   margin-right: 8px;
-}
-
-.filter-item:last-child {
-  margin-right: 0px;
 }
 
 .projects-filter .btn {
@@ -343,6 +471,8 @@ ul {
   background-color: var(--brand-color);
   color: var(--main-bcg-color);
   cursor: pointer;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 /* примеры проектов */
@@ -357,6 +487,12 @@ ul {
 .projects > .projects-item {
   margin-left: 30px;
   margin-top: 30px;
+}
+
+.projects > .projects-item:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
 }
 
 .projects-item-text {
